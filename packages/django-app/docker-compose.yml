@@ -1,0 +1,37 @@
+version: '3.8'
+
+volumes:
+  yourproject_postgres:
+    external: true
+
+services:
+  db:
+    image: postgres
+    env_file:
+      - ./.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - yourproject_postgres:/var/lib/postgresql/data/
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    environment:
+      - POSTGRES_HOST=db
+    command:
+      - '/code/bin/wait-for-it.sh'
+      - 'db:5432'
+      - '--'
+      - 'python'
+      - '/code/app/manage.py'
+      - 'runserver'
+      - '0.0.0.0:8000'
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
