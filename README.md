@@ -34,3 +34,7 @@
 * `./utils/dump-data.sh`
   *  `./utils/dump-data.sh > app/core/fixtures/dump-2021-10-08.json`
   * you can then reload these files with `./utils/reload-docker-db.sh`
+
+
+### TODOs
+* graphql api layer
