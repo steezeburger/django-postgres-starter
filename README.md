@@ -26,13 +26,16 @@
 * you can now login with your superuser at 0.0.0.0:8000/admin
 
 ## helpful scripts
-* `./bin/dcp-django-admin.sh`
+* `$ ./bin/dcp-django-admin.sh`
   * runs `manage.py` in the docker container with argument passthrough
-* `./utils/reload-docker-db.sh`
+  * `$ ./bin/dcp-django-admin.sh makemigrations`
+  * `$ ./bin/dcp-django-admin.sh migrate`
+  * `$ ./bin/dcp-django-admin.sh startapp payments`
+* `$ ./utils/reload-docker-db.sh`
   * reloads `dev_data.json` by default
-  * `./utils/reload-docker-db.sh --data=fixture_filename.json`
-* `./utils/dump-data.sh`
-  *  `./utils/dump-data.sh > app/core/fixtures/dump-2021-10-08.json`
+  * `$ ./utils/reload-docker-db.sh --data=fixture_filename.json`
+* `$ ./utils/dump-data.sh`
+  *  `$ ./utils/dump-data.sh > app/core/fixtures/dump-2021-10-08.json`
   * you can then reload these files with `./utils/reload-docker-db.sh`
 
 
