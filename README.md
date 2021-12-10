@@ -2,13 +2,13 @@
 
 * git clone the repo to your machine
 * find and replace instances of `yourproject` with the name of your project
+* `$ cd packages/django-app`
 * `python -m venv .venv`
   * not technically necessary, but useful for installing locally to add pip packages and update the requirements.txt file
   * `$ source .venv/bin/activate`
   * `$ pip install -r requirements.txt`
   * `$ pip install some_package`
   * `$ pip freeze > requirements.txt`
-* `$ cd packages/django-app`
 * `$ cp .env.template .env`
 * `$ docker-compose build`
 * `$ ./utils/create-docker-volumes.sh`
