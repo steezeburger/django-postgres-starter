@@ -26,6 +26,9 @@
 * you can now login with your superuser at 0.0.0.0:8000/admin
 
 ## helpful scripts
+* `$ ./utils/dcp-run-tests.sh`
+  * runs all tests, except those decorated with `@pytest.mark.integration`
+  * tests.py test_*.py *_test.py *_tests.py
 * `$ ./bin/dcp-django-admin.sh`
   * runs `manage.py` in the docker container with argument passthrough
   * `$ ./bin/dcp-django-admin.sh makemigrations`
