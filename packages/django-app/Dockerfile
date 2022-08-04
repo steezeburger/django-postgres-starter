@@ -1,16 +1,17 @@
-FROM python:3.9-slim as base
+FROM python:3.10-slim as base
 ENV PYTHONUNBUFFERED 1
 
 # install pipenv and compilation dependencies
 # https://cryptography.io/en/latest/installation/
 RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev python3-dev cargo
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip pipenv
 
 # install python dependencies
 RUN mkdir /code
 WORKDIR /code
-COPY requirements.txt /code
-RUN pip install -r requirements.txt
+COPY Pipfile /code
+COPY Pipfile.lock /code
+RUN pipenv install --dev --deploy --system
 
 # install application into container
 COPY . /code

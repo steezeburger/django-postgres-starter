@@ -17,7 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/packages/django-app/app" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/packages/django-app/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (poc)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (django-starter)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

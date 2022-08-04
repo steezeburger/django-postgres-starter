@@ -21,6 +21,8 @@ services:
       - ./.env
     environment:
       - POSTGRES_HOST=db
+      - STATIC_ROOT=/code/app/static/
+      - MEDIA_ROOT=/code/app/media/
     command:
       - '/code/bin/wait-for-it.sh'
       - 'db:5432'

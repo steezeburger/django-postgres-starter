@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # contrib
+    'django_extensions',
 
     # own
     'core',
@@ -83,7 +84,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -134,14 +134,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = os.environ.get('STATIC_URL', '/code/app/static/')
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 
 # path to static directory in docker container.
 # this is where files are created when running `collectstatic`
-STATIC_ROOT = os.environ.get('STATIC_ROOT', '/code/app/static/')
+STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(BASE_DIR, 'static'))
 
+# https://docs.djangoproject.com/en/4.0/topics/files/
+MEDIA_URL = os.environ.get('MEDIA_URL', '/media/')
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SITE_URL = os.environ.get('SITE_URL', '0.0.0.0')
