@@ -9,6 +9,7 @@
   * `$ pip install -r requirements.txt`
   * `$ pip install some_package`
   * `$ pip freeze > requirements.txt`
+  * OR `PIPENV_VENV_IN_PROJECT=1 pipenv install --dev --deploy`
 * `$ cp .env.template .env`
 * `$ docker-compose build`
 * `$ ./utils/create-docker-volumes.sh`
