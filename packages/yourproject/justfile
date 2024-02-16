@@ -3,6 +3,18 @@ default:
 
 set dotenv-load
 
+###########
+# Project #
+###########
+
+gen-env:
+  cp .env.example .env
+
+
+##########
+# Django #
+##########
+
 run:
   python djangoapp/manage.py runserver
 
@@ -11,6 +23,7 @@ dj +command:
 
 generate-secret-key:
    python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
 
 #######
 # Rye #

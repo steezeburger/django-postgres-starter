@@ -32,6 +32,13 @@ try:
 except KeyError:
     ALLOWED_HOSTS = []
 
+# auth
+AUTH_USER_MODEL = 'core.User'
+# authentication for django admin
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 
 # Application definition
 
@@ -42,6 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # contrib
+    'django_extensions',
+
+    # own
+    'core',
 ]
 
 MIDDLEWARE = [
