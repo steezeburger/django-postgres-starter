@@ -6,10 +6,9 @@
 * `python -m venv .venv`
   * not technically necessary, but useful for installing locally to add pip packages and update the requirements.txt file
   * `$ source .venv/bin/activate`
-  * `$ pip install -r requirements.txt`
-  * `$ pip install some_package`
-  * `$ pip freeze > requirements.txt`
-  * OR `PIPENV_VENV_IN_PROJECT=1 pipenv install --dev --deploy`
+  * `$ pip install pipenv`
+  * `$ PIPENV_VENV_IN_PROJECT=1 pipenv install --dev --deploy  `
+  * `$ pipenv install some_package`
 * `$ cp .env.template .env`
 * `$ docker-compose build`
 * `$ ./utils/create-docker-volumes.sh`

@@ -55,6 +55,10 @@ function recreate() {
 
   # recreates named volume
   docker volume create --name=yourproject_postgres
+
+  # bring container back up and sleep for 5 seconds to ensure db is up
+  docker-compose up -d db
+  sleep 5
 }
 
 function migrate() {
