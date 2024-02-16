@@ -15,29 +15,39 @@ gen-env:
 # Django #
 ##########
 
+# start dev server
 run:
-  python djangoapp/manage.py runserver
+  .venv/bin/python djangoapp/manage.py runserver
 
+# alias for django-admin
 dj +command:
-  python djangoapp/manage.py {{command}}
+  .venv/bin/python djangoapp/manage.py {{command}}
 
+# generate a secret key
 generate-secret-key:
-   python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+   .venv/bin/python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
+# run tests
+test:
+  .venv/bin/pytest -m "not integration" --cov=. --verbose
 
 
 #######
 # Rye #
 #######
 
+# add python dependency
 add-dep +packages:
   rye add {{packages}}
 
+# add python dependency as dev dependency
 add-dep-dev +packages:
   rye add --dev {{packages}}
 
+# remove python dependency
 remove-dep +packages:
   rye remove {{packages}}
 
+# install python dependencies
 sync-deps:
   rye sync
-
