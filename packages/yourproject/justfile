@@ -1,0 +1,30 @@
+default:
+  @just --list
+
+set dotenv-load
+
+run:
+  python djangoapp/manage.py runserver
+
+dj +command:
+  python djangoapp/manage.py {{command}}
+
+generate-secret-key:
+   python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
+#######
+# Rye #
+#######
+
+add-dep +packages:
+  rye add {{packages}}
+
+add-dep-dev +packages:
+  rye add --dev {{packages}}
+
+remove-dep +packages:
+  rye remove {{packages}}
+
+sync-deps:
+  rye sync
+
